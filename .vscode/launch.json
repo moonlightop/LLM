@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug BE (tsnd)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/BE",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "tsnd",
+        "--inspect=9229",
+        "-r",
+        "tsconfig-paths/register",
+        "--respawn",
+        "--transpile-only",
+        "${workspaceFolder}/BE/app.ts"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "dev": {
+    "httpUrl": "http://localhost:8080",
+    "wsUrl": "ws://localhost:8081"
+  },
+  "st": {
+    "httpUrl": "http://localhost:8080",
+    "wsUrl": "ws://localhost:8081"
+  },
+  "uat": {
+    "httpUrl": "http://localhost:8080",
+    "wsUrl": "ws://localhost:8081"
+  },
+  "prod": {
+    "httpUrl": "http://localhost:8080",
+    "wsUrl": "ws://localhost:8081"
+  }
+}
