@@ -32,13 +32,15 @@ const desc = computed(() => {
 })
 onBeforeMount(async () => {
   weatherRes.value = await queryMiscWeather()
-  console.log(weatherRes.value)
 })
 </script>
 <style scoped lang="less">
 .life {
+  box-sizing: border-box;
+
   width: 100%;
   flex-shrink: 0;
+  padding-left: 16px;
 
   .title {
     font-size: 24px;  
@@ -47,6 +49,7 @@ onBeforeMount(async () => {
   }
   .desc {
     margin-top: 14px;
+    font-size: 16px;
   }
 }
 </style>

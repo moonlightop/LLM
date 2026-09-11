@@ -13,6 +13,7 @@
       <chat />
       <agent />
     </swiper>
+    <send :sendText="sendText" />
   </div>
 </template>
 <script setup lang="ts">
@@ -23,6 +24,7 @@ import swiper from "@/components/swiper/index.vue"
 import life from "@/components/life/index.vue"
 import chat from "@/components/chat/index.vue"
 import agent from "@/components/agent/index.vue"
+import send from "@/components/send/index.vue"
 
 import network from "@/config/network.json"
 import useWs from "@/hooks/useWs"
@@ -99,7 +101,6 @@ const changeActiveTab = (key: string) => {
 
   ::v-deep .swiper {
     flex-grow: 1;
-    margin-left: 16px;
   }
 }
 </style>
