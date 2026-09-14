@@ -8,7 +8,7 @@
         @click="changeActiveTab(tab.key)"
       >{{ tab.label }}</div>
     </tab>
-    <swiper :activeIndex="activeIndex">
+    <swiper :activeIndex="activeIndex" @prev="onSwipePrev" @next="onSwipeNext">
       <life />
       <chat />
       <agent />
@@ -59,6 +59,20 @@ const activeTab = ref("life")
 const activeIndex = computed(() =>tabs.findIndex((tab) => tab.key === activeTab.value))
 const changeActiveTab = (key: string) => {
   activeTab.value = key
+}
+
+const onSwipePrev = () => {
+  const idx = tabs.findIndex((tab) => tab.key === activeTab.value)
+  if (idx > 0) {
+    activeTab.value = tabs[idx - 1].key
+  }
+}
+
+const onSwipeNext = () => {
+  const idx = tabs.findIndex((tab) => tab.key === activeTab.value)
+  if (idx < tabs.length - 1) {
+    activeTab.value = tabs[idx + 1].key
+  }
 }
 </script>
 <style scoped lang="less">
