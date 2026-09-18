@@ -28,13 +28,16 @@ const emit = defineEmits<{
 
 const SWIPE_THRESHOLD_PERCENT = 20
 const MAX_DRAG_PERCENT = 100
+const DIRECTION_LOCK_THRESHOLD = 10
 
 const swiperRef = ref<HTMLElement | null>(null)
 const startX = ref(0)
 const startY = ref(0)
+const moveX = ref(0)
 const dragOffset = ref(0)
 const isDragging = ref(false)
 const isTransitioning = ref(true)
+const lockedDirection = ref<"horizontal" | "vertical" | null>(null)
 
 const swiperStyle = computed(() => {
   const offset = -activeIndex.value * 100 + dragOffset.value
@@ -68,37 +71,52 @@ const startDrag = (x: number, y: number) => {
   dragOffset.value = 0
   isDragging.value = true
   isTransitioning.value = false
+  lockedDirection.value = null
 }
 
 const moveDrag = (currentX: number, currentY: number) => {
   if (!isDragging.value) return
 
+  moveX.value = currentX
+
   const deltaX = currentX - startX.value
   const deltaY = currentY - startY.value
 
-  // Ignore if gesture is mostly vertical (allow page scrolling)
-  if (Math.abs(deltaX) < Math.abs(deltaY)) return
+  // 锁定初始方向：超过阈值后锁定，不再改变
+  if (!lockedDirection.value) {
+    if (Math.abs(deltaX) > DIRECTION_LOCK_THRESHOLD || Math.abs(deltaY) > DIRECTION_LOCK_THRESHOLD) {
+      lockedDirection.value = Math.abs(deltaX) > Math.abs(deltaY) ? "horizontal" : "vertical"
+    }
+  }
+
+  // 垂直方向不做任何处理，让页面自然滚动
+  if (lockedDirection.value === "vertical") return
 
   dragOffset.value = calcDragPercent(deltaX)
 }
 
-const endDrag = (deltaX: number) =>{
+const endDrag = () => {
   if (!isDragging.value) return
   isDragging.value = false
   isTransitioning.value = true
 
-  const containerWidth = getContainerWidth()
-  const dragPercent = (deltaX / containerWidth) * 100
+  // 只有水平方向才触发翻页
+  if (lockedDirection.value === "horizontal") {
+    const containerWidth = getContainerWidth()
+    const deltaX = moveX.value - startX.value
+    const dragPercent = (deltaX / containerWidth) * 100
 
-  if (Math.abs(dragPercent) > SWIPE_THRESHOLD_PERCENT) {
-    if (dragPercent < 0) {
-      emit("next")
-    } else {
-      emit("prev")
+    if (Math.abs(dragPercent) > SWIPE_THRESHOLD_PERCENT) {
+      if (dragPercent < 0) {
+        emit("next")
+      } else {
+        emit("prev")
+      }
     }
   }
 
   dragOffset.value = 0
+  lockedDirection.value = null
 }
 
 const onTouchStart = (e: TouchEvent) => {
@@ -113,10 +131,8 @@ const onTouchMove = (e: TouchEvent) => {
   moveDrag(currentX, currentY)
 }
 
-const onTouchEnd = (e: TouchEvent) => {
-  const currentX = e.changedTouches[0].clientX
-  const deltaX = currentX - startX.value
-  endDrag(deltaX)
+const onTouchEnd = () => {
+  endDrag()
 }
 </script>
 <style scoped lang="less">

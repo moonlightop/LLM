@@ -929,3 +929,64 @@
 [2026-09-10T17:37:13.649] [INFO] default - client connected
 [2026-09-10T17:37:38.238] [INFO] default - client closed
 [2026-09-10T17:37:44.117] [INFO] default - client connected
+[2026-09-18T12:20:58.641] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T12:20:58.644] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T12:21:09.475] [INFO] default - client connected
+[2026-09-18T12:25:43.696] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T12:25:43.699] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T12:25:58.636] [INFO] default - client connected
+[2026-09-18T12:26:34.073] [INFO] default - client closed
+[2026-09-18T12:26:36.437] [INFO] default - client connected
+[2026-09-18T12:26:47.762] [INFO] default - client closed
+[2026-09-18T12:26:51.283] [INFO] default - client connected
+[2026-09-18T12:27:13.151] [INFO] default - client closed
+[2026-09-18T12:27:13.233] [INFO] default - client connected
+[2026-09-18T12:27:15.352] [INFO] default - client closed
+[2026-09-18T12:27:15.443] [INFO] default - client connected
+[2026-09-18T12:27:39.000] [INFO] default - client connected
+[2026-09-18T12:27:41.708] [INFO] default - client closed
+[2026-09-18T12:27:41.709] [INFO] default - client closed
+[2026-09-18T12:27:41.789] [INFO] default - client connected
+[2026-09-18T12:28:44.764] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T12:28:44.767] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T12:28:44.985] [INFO] default - client connected
+[2026-09-18T12:31:44.788] [INFO] default - client connected
+[2026-09-18T12:31:47.767] [INFO] default - client connected
+[2026-09-18T12:32:13.930] [INFO] default - client connected
+[2026-09-18T12:33:50.215] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T12:33:50.218] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T12:33:50.643] [INFO] default - client connected
+[2026-09-18T12:33:50.665] [INFO] default - client connected
+[2026-09-18T12:33:50.680] [INFO] default - client connected
+[2026-09-18T12:33:50.695] [INFO] default - client connected
+[2026-09-18T12:37:53.791] [INFO] default - client closed
+[2026-09-18T12:37:53.794] [INFO] default - client closed
+[2026-09-18T12:37:53.795] [INFO] default - client closed
+[2026-09-18T12:37:53.795] [INFO] default - client closed
+[2026-09-18T12:37:53.870] [INFO] default - client connected
+[2026-09-18T12:38:54.065] [INFO] default - client connected
+[2026-09-18T12:38:58.749] [INFO] default - client closed
+[2026-09-18T12:38:58.751] [INFO] default - client closed
+[2026-09-18T12:38:58.845] [INFO] default - client connected
+[2026-09-18T12:39:20.481] [INFO] default - client connected
+[2026-09-18T12:39:24.456] [INFO] default - client connected
+[2026-09-18T12:39:26.795] [INFO] default - client closed
+[2026-09-18T12:39:26.797] [INFO] default - client closed
+[2026-09-18T12:39:26.798] [INFO] default - client closed
+[2026-09-18T12:39:26.889] [INFO] default - client connected
+[2026-09-18T12:44:51.403] [INFO] default - client closed
+[2026-09-18T12:44:51.518] [INFO] default - client connected
+[2026-09-18T12:47:37.522] [INFO] default - client connected
+[2026-09-18T12:48:20.168] [INFO] default - client closed
+[2026-09-18T12:48:20.170] [INFO] default - client closed
+[2026-09-18T12:48:20.253] [INFO] default - client connected
+[2026-09-18T12:48:28.864] [INFO] default - client connected
+[2026-09-18T12:48:31.221] [INFO] default - client closed
+[2026-09-18T12:48:31.223] [INFO] default - client closed
+[2026-09-18T12:48:31.314] [INFO] default - client connected
+[2026-09-18T12:49:57.371] [INFO] default - client closed
+[2026-09-18T12:49:57.474] [INFO] default - client connected
+[2026-09-18T12:50:13.409] [INFO] default - client closed
+[2026-09-18T12:50:13.492] [INFO] default - client connected
+[2026-09-18T12:50:22.454] [INFO] default - client closed
+[2026-09-18T12:50:22.533] [INFO] default - client connected

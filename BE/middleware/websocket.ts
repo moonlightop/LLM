@@ -1,6 +1,9 @@
 import { WebSocket } from "ws"
+import crypto from "crypto"
+
 import llm from "@/utils/llm"
 import { logger } from "@/middleware/logger"
+
 
 export const websocketMiddleware = async (ws: WebSocket) => {
   logger.info("client connected")
@@ -29,12 +32,18 @@ export const websocketMiddleware = async (ws: WebSocket) => {
         type: "PONG",
       }))
     } else if (data.type === "TEXT") {
-      ws.send(JSON.stringify({ type: "TEXT_START" }))
+      ws.send(JSON.stringify({ type: "CHUNK", done: false, content: "" }))
       await llm(data.content, (chunk) => {
-        ws.send(JSON.stringify({ type: "TEXT_CHUNK", content: chunk }))
+        ws.send(JSON.stringify({ type: "CHUNK", done: false, content: chunk }))
       })
-      ws.send(JSON.stringify({ type: "TEXT_END" }))
+      ws.send(JSON.stringify({ type: "CHUNK", done: true, content: "" }))
     }
+  })
+
+  ws.on("error", (err) => {
+    logger.error(`WebSocket error: ${err.message}`)
+    // 不关闭连接，仅记录错误，保持连接存活
+    clientAlive = true
   })
 
   ws.on("close", () => {

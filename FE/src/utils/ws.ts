@@ -1,7 +1,8 @@
 class StableWebSocket {
-  constructor(url: string) {
+  constructor(url: string, handleBusinessMessage: (data) => void) {
     this.url = url
     this.ws = null
+    this.handleBusinessMessage = handleBusinessMessage
 
     // 心跳检测配置
     this.heartbeatInterval = 3000
@@ -126,6 +127,7 @@ class StableWebSocket {
   }
 
   handleBusinessMessage(data) {
+    this.handleBusinessMessage(data)
   }
 
   sendText(text: string) {

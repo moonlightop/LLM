@@ -18,6 +18,7 @@
 </template>
 <script setup lang="ts">
 import { computed, onMounted, onUpdated, ref } from "vue"
+import { v4 as uuidv4 } from "uuid"
 
 import tab from "@/components/tab/index.vue"
 import swiper from "@/components/swiper/index.vue"
@@ -28,9 +29,12 @@ import send from "@/components/send/index.vue"
 
 import network from "@/config/network.json"
 import useWs from "@/hooks/useWs"
+import { useSocketStore } from "@/store/socket"
 
 // env
 console.log(process.env.NODE_ENV)
+
+const socketStore = useSocketStore()
 
 // websocket logic
 const ws = ref(null)
@@ -42,6 +46,11 @@ const connectWs = () => {
 const sendText = (text: string) => {
   if (ws.value) {
     ws.value.sendText(text)
+    socketStore.addSession({
+      id: uuidv4(),
+      question: text,
+      answer: "",
+    })
   }
 }
 onMounted(() => {
@@ -55,7 +64,7 @@ const tabs = [
   { key: "agent", label: "智能体" },
 ] as const
 
-const activeTab = ref("life")
+const activeTab = ref("chat")
 const activeIndex = computed(() =>tabs.findIndex((tab) => tab.key === activeTab.value))
 const changeActiveTab = (key: string) => {
   activeTab.value = key
