@@ -5,7 +5,7 @@ const openai = new OpenAI({
   apiKey: "ollama",
 })
 
-const llm = async (prompt: string, onChunk: (chunk: string) => void) => {
+const llm = async (prompt: string, onChunk: (chunk: string) => void, signal: AbortSignal) => {
   const stream = await openai.chat.completions.create({
     model: "deepseek-r1",
     messages: [
@@ -19,11 +19,12 @@ const llm = async (prompt: string, onChunk: (chunk: string) => void) => {
       },
     ],
     stream: true,
-  })
+  }, { signal })
 
   // 异步等待每一个chunk，将content拼接起来，返回完整的字符串
   let fullContent = ""
   for await (const chunk of stream) {
+    if (signal.aborted) break
     const content = chunk.choices[0]?.delta?.content || ""
     if (content) {
       fullContent += content

@@ -5,14 +5,16 @@ const useWs = (wsUrl: string) => {
   const socketStore = useSocketStore()
 
   const handleBusinessMessage = (data) => {
-    console.log("收到业务消息", data)
+    if (!socketStore.isSending) {
+      return
+    }
+
     if (data.type === "CHUNK") {
       const session = {
-        id: data.id,
         content: data.content,
         done: data.done,
       }
-      socketStore.setStreamSession(session)
+      socketStore.setActiveSessionAnswer(session)
     } else {
       socketStore.addSession(data)
     }

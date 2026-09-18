@@ -2,8 +2,11 @@
   <div class="send">
     <div class="tools">
       <div class="directives"></div>
-      <div class="textInput" ref="textInput" contenteditable="true" data-placeholder="有什么需要问我的吗 ~"></div>
-      <div class="sendBtn" @click="sendHandler"></div>
+      <div class="textInput" ref="textInput" contenteditable="true" data-placeholder="有什么需要问我的吗 ~"
+        @keyup.enter="sendHandler"
+      ></div>
+      <div class="stopBtn" v-if="socketStore.isSending" @click="stopHandler"></div>
+      <div class="sendBtn" v-else @click="sendHandler"></div>
       <div class="voice"></div>
     </div>
     <div class="tip">内容由AI生成</div>
@@ -11,13 +14,15 @@
 </template>
 <script setup lang="ts">
 import { toRefs, defineProps, ref } from "vue"
+import { useSocketStore } from "@/store/socket"
 
 interface ISendProps {
   sendText: (text: string) => void
+  stopSend: () => void
 }
 
 const props = defineProps<ISendProps>()
-const { sendText } = toRefs(props)
+const { sendText, stopSend } = toRefs(props)
 
 const textInput = ref(null)
 const sendHandler = (e: MouseEvent) => {
@@ -28,6 +33,12 @@ const sendHandler = (e: MouseEvent) => {
   }
   sendText.value(text)
   textInput.value.textContent = ""
+  socketStore.isSending = true
+}
+
+const socketStore = useSocketStore()
+const stopHandler = () => {
+  stopSend.value()
 }
 
 </script>
@@ -80,13 +91,18 @@ const sendHandler = (e: MouseEvent) => {
       color: #bdc2c6;
       pointer-events: none;
     }
-    .sendBtn {
+    .sendBtn, .stopBtn {
       height: 30px;
       width: 30px;
       border-radius: 50%;
       margin-right: 10px;
-
+    }
+    .sendBtn {
       background-image: url("@/assets/imgs/send.png");
+      background-size: cover;
+    }
+    .stopBtn {
+      background-image: url("@/assets/imgs/stop.png");
       background-size: cover;
     }
     .voice {

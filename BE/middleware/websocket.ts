@@ -1,5 +1,4 @@
 import { WebSocket } from "ws"
-import crypto from "crypto"
 
 import llm from "@/utils/llm"
 import { logger } from "@/middleware/logger"
@@ -8,6 +7,7 @@ import { logger } from "@/middleware/logger"
 export const websocketMiddleware = async (ws: WebSocket) => {
   logger.info("client connected")
   let clientAlive = true
+  const abortController = new AbortController()
 
   // PING/PONG双向检测
   const heartbeatInterval = setInterval(() => {
@@ -35,8 +35,10 @@ export const websocketMiddleware = async (ws: WebSocket) => {
       ws.send(JSON.stringify({ type: "CHUNK", done: false, content: "" }))
       await llm(data.content, (chunk) => {
         ws.send(JSON.stringify({ type: "CHUNK", done: false, content: chunk }))
-      })
-      ws.send(JSON.stringify({ type: "CHUNK", done: true, content: "" }))
+      }, abortController.signal)
+      if (!abortController.signal.aborted) {
+        ws.send(JSON.stringify({ type: "CHUNK", done: true, content: "" }))
+      }
     }
   })
 
@@ -48,6 +50,7 @@ export const websocketMiddleware = async (ws: WebSocket) => {
 
   ws.on("close", () => {
     logger.info("client closed")
+    abortController.abort()
     clearInterval(heartbeatInterval)
   })
 }

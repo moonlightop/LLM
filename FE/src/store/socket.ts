@@ -6,38 +6,36 @@ interface IRecord {
   answer: string
 }
 
+const STORAGE_KEY = "chat_data"
+
 export const useSocketStore = defineStore("socket", {
   state: (): {
     histories: IRecord[]
     sessions: IRecord[]
+    isSending: boolean
+    historyPage: number
+    historyHasMore: boolean
+    historyLoading: boolean
   } => ({
-    histories: [{
-      id: "1",
-      question: "你好",
-      answer: "你好, 我是一个智能助手, 你可以问我任何问题, 我会尽力回答",
-    }],
-    sessions: [{
-      id: "2",
-      question: "你好",
-      answer: "你好, 我是一个智能助手, 你可以问我任何问题, 我会尽力回答",
-    }, {
-      id: "3",
-      question: "你好",
-      answer: "你好, 我是一个智能助手, 你可以问我任何问题, 我会尽力回答",
-    }, {
-      id: "4",
-      question: "你好",
-      answer: "你好, 我是一个智能助手, 你可以问我任何问题, 我会尽力回答",
-    }]
+    histories: [],
+    sessions: [],
+    isSending: false,
+    activeSession: {} as any,
+    historyPage: 0,
+    historyHasMore: true,
+    historyLoading: false,
   }),
   actions: {
-    setStreamSession(session: IRecord) {
-      const lastSession = this.sessions[this.sessions.length - 1]
+    setActiveSessionAnswer(session: IRecord) {
       if (session.done) {
+        this.isSending = false
         return
       }
 
-      lastSession.answer += session.content
+      this.activeSession.answer += session.content
+    },
+    addActiveSession(session: IRecord) {
+      this.activeSession = session
     },
     addSession(session: IRecord) {
       this.sessions.push({
@@ -49,8 +47,51 @@ export const useSocketStore = defineStore("socket", {
     addHistories(histories: IRecord[]) {
       this.histories.push(...histories)
     },
-  },
-  getters: {
-    activeSession: (state) => state.sessions[state.sessions.length - 1]
+    prependHistories(histories: IRecord[]) {
+      this.histories.unshift(...histories)
+    },
+    loadMoreHistory() {
+      if (this.historyLoading || !this.historyHasMore) {
+        return
+      }
+      this.historyLoading = true
+
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY)
+        const allRecords: IRecord[] = raw ? JSON.parse(raw) : []
+        const pageSize = 10
+        const nextPage = this.historyPage + 1
+        const end = allRecords.length - (nextPage - 1) * pageSize
+        const start = allRecords.length - nextPage * pageSize
+        const records = allRecords.slice(Math.max(0, start), end)
+
+        if (records.length) {
+          this.prependHistories(records)
+        }
+        this.historyPage = nextPage
+        this.historyHasMore = start > 0
+        this.historyLoading = false
+      } catch (err) {
+        console.log("loadMoreHistory", err)
+      }
+    },
+    saveToLocalStorage() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY)
+        const prev: IRecord[] = raw ? JSON.parse(raw) : []
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...prev, ...this.sessions]))
+      } catch (err) {
+        console.log("saveToLocalStorage", err)
+      }
+    },
+    loadFromLocalStorage() {
+      this.historyPage = 0
+      this.historyHasMore = true
+      this.histories = []
+      this.loadMoreHistory()
+    },
+    clearLocalStorage() {
+      localStorage.removeItem(STORAGE_KEY)
+    },
   },
 })

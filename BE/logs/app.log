@@ -990,3 +990,117 @@
 [2026-09-18T12:50:13.492] [INFO] default - client connected
 [2026-09-18T12:50:22.454] [INFO] default - client closed
 [2026-09-18T12:50:22.533] [INFO] default - client connected
+[2026-09-18T13:59:14.377] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T13:59:14.380] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T13:59:30.654] [INFO] default - client connected
+[2026-09-18T14:06:21.230] [INFO] default - client connected
+[2026-09-18T14:06:23.819] [INFO] default - client connected
+[2026-09-18T14:06:58.479] [INFO] default - client connected
+[2026-09-18T14:12:40.717] [INFO] default - client connected
+[2026-09-18T14:16:43.688] [INFO] default - client closed
+[2026-09-18T14:16:43.694] [INFO] default - client closed
+[2026-09-18T14:16:43.696] [INFO] default - client closed
+[2026-09-18T14:16:43.697] [INFO] default - client closed
+[2026-09-18T14:16:43.698] [INFO] default - client closed
+[2026-09-18T14:16:43.833] [INFO] default - client connected
+[2026-09-18T14:18:07.741] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T14:18:07.744] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T14:18:09.636] [INFO] default - client connected
+[2026-09-18T14:18:21.798] [INFO] default - client closed
+[2026-09-18T14:18:21.884] [INFO] default - client connected
+[2026-09-18T14:18:56.090] [INFO] default - client connected
+[2026-09-18T14:19:03.504] [INFO] default - client connected
+[2026-09-18T14:19:08.603] [INFO] default - client closed
+[2026-09-18T14:19:08.611] [INFO] default - client closed
+[2026-09-18T14:19:08.613] [INFO] default - client closed
+[2026-09-18T14:19:08.753] [INFO] default - client connected
+[2026-09-18T14:22:18.371] [INFO] default - client connected
+[2026-09-18T14:25:56.659] [INFO] default - client connected
+[2026-09-18T14:26:41.495] [INFO] default - client connected
+[2026-09-18T14:27:16.049] [INFO] default - client connected
+[2026-09-18T14:27:18.472] [INFO] default - client connected
+[2026-09-18T14:27:20.676] [INFO] default - client connected
+[2026-09-18T14:28:25.021] [INFO] default - client connected
+[2026-09-18T14:28:47.648] [INFO] default - client connected
+[2026-09-18T14:28:47.675] [INFO] default - client connected
+[2026-09-18T14:31:05.277] [INFO] default - client connected
+[2026-09-18T14:31:18.084] [INFO] default - client connected
+[2026-09-18T14:31:51.671] [INFO] default - client connected
+[2026-09-18T14:32:10.406] [INFO] default - client connected
+[2026-09-18T14:32:56.594] [INFO] default - client connected
+[2026-09-18T14:33:02.074] [INFO] default - client connected
+[2026-09-18T14:33:30.703] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T14:33:30.706] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T14:33:32.282] [INFO] default - client connected
+[2026-09-18T14:33:32.304] [INFO] default - client connected
+[2026-09-18T14:33:32.325] [INFO] default - client connected
+[2026-09-18T14:33:32.340] [INFO] default - client connected
+[2026-09-18T14:33:32.357] [INFO] default - client connected
+[2026-09-18T14:33:32.369] [INFO] default - client connected
+[2026-09-18T14:33:32.392] [INFO] default - client connected
+[2026-09-18T14:33:32.406] [INFO] default - client connected
+[2026-09-18T14:33:32.421] [INFO] default - client connected
+[2026-09-18T14:33:32.436] [INFO] default - client connected
+[2026-09-18T14:33:32.452] [INFO] default - client connected
+[2026-09-18T14:33:32.565] [INFO] default - client connected
+[2026-09-18T14:33:32.667] [INFO] default - client connected
+[2026-09-18T14:33:32.783] [INFO] default - client connected
+[2026-09-18T14:33:32.899] [INFO] default - client connected
+[2026-09-18T14:33:33.574] [INFO] default - client connected
+[2026-09-18T14:33:34.136] [INFO] default - client closed
+[2026-09-18T14:33:34.146] [INFO] default - client closed
+[2026-09-18T14:33:34.146] [INFO] default - client closed
+[2026-09-18T14:33:34.147] [INFO] default - client closed
+[2026-09-18T14:33:34.147] [INFO] default - client closed
+[2026-09-18T14:33:34.147] [INFO] default - client closed
+[2026-09-18T14:33:34.148] [INFO] default - client closed
+[2026-09-18T14:33:34.148] [INFO] default - client closed
+[2026-09-18T14:33:34.148] [INFO] default - client closed
+[2026-09-18T14:33:34.149] [INFO] default - client closed
+[2026-09-18T14:33:34.149] [INFO] default - client closed
+[2026-09-18T14:33:34.149] [INFO] default - client closed
+[2026-09-18T14:33:34.150] [INFO] default - client closed
+[2026-09-18T14:33:34.150] [INFO] default - client closed
+[2026-09-18T14:33:34.151] [INFO] default - client closed
+[2026-09-18T14:33:34.151] [INFO] default - client closed
+[2026-09-18T14:33:34.222] [INFO] default - client connected
+[2026-09-18T14:38:29.448] [INFO] default - client connected
+[2026-09-18T14:39:35.225] [INFO] default - client closed
+[2026-09-18T14:39:35.227] [INFO] default - client closed
+[2026-09-18T14:39:35.325] [INFO] default - client connected
+[2026-09-18T14:41:25.362] [INFO] default - client closed
+[2026-09-18T14:41:25.452] [INFO] default - client connected
+[2026-09-18T14:46:08.926] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T14:46:08.929] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T14:46:09.640] [INFO] default - client connected
+[2026-09-18T14:46:20.819] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T14:46:20.822] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T14:46:21.647] [INFO] default - client connected
+[2026-09-18T14:46:26.132] [INFO] default - client connected
+[2026-09-18T14:46:32.571] [INFO] default - client connected
+[2026-09-18T14:47:04.979] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T14:47:04.983] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T14:47:05.645] [INFO] default - client connected
+[2026-09-18T14:47:05.660] [INFO] default - client connected
+[2026-09-18T14:47:05.672] [INFO] default - client connected
+[2026-09-18T14:49:14.619] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T14:49:14.622] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T14:49:15.642] [INFO] default - client connected
+[2026-09-18T14:49:15.656] [INFO] default - client connected
+[2026-09-18T14:49:15.669] [INFO] default - client connected
+[2026-09-18T14:49:25.614] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T14:49:25.617] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T14:49:26.635] [INFO] default - client connected
+[2026-09-18T14:49:26.649] [INFO] default - client connected
+[2026-09-18T14:49:26.662] [INFO] default - client connected
+[2026-09-18T14:52:37.282] [INFO] default - client closed
+[2026-09-18T14:52:37.299] [INFO] default - client closed
+[2026-09-18T14:52:37.300] [INFO] default - client closed
+[2026-09-18T14:52:37.437] [INFO] default - client connected
+[2026-09-18T14:53:12.478] [INFO] default - client closed
+[2026-09-18T14:55:34.897] [INFO] default - client connected
+[2026-09-18T14:55:43.250] [INFO] default - client connected
+[2026-09-18T15:04:48.131] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T15:04:48.134] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T15:04:48.639] [INFO] default - client connected
+[2026-09-18T15:04:48.651] [INFO] default - client connected

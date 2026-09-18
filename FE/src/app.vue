@@ -13,7 +13,7 @@
       <chat />
       <agent />
     </swiper>
-    <send :sendText="sendText" />
+    <send :sendText="sendText" :stopSend="stopSend" />
   </div>
 </template>
 <script setup lang="ts">
@@ -44,25 +44,37 @@ const connectWs = () => {
   ws.value = socket
 }
 const sendText = (text: string) => {
+  // 如果连接已关闭或不存在，重新连接
+  if (!ws.value || ws.value.ws?.readyState !== WebSocket.OPEN) {
+    connectWs()
+  }
   if (ws.value) {
     ws.value.sendText(text)
-    socketStore.addSession({
+    socketStore.addActiveSession({
       id: uuidv4(),
       question: text,
       answer: "",
     })
   }
 }
+const stopSend = () => {
+  socketStore.isSending = false
+  if (ws.value) {
+    ws.value.close()
+    ws.value = null
+  }
+}
 onMounted(() => {
   connectWs()
+  socketStore.loadFromLocalStorage()
+  window.addEventListener("beforeunload", () => socketStore.saveToLocalStorage())
 })
-
 // active tab logic
 const tabs = [
   { key: "life", label: "生活" },
   { key: "chat", label: "对话" },
   { key: "agent", label: "智能体" },
-] as const
+]
 
 const activeTab = ref("chat")
 const activeIndex = computed(() =>tabs.findIndex((tab) => tab.key === activeTab.value))
