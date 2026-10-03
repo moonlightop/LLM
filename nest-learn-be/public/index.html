@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>req</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qs@6.16.0/dist/qs.min.js"></script>
+  <style>
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <button onclick="urlParamReq()">url param</button>
+    <button onclick="queryReq()">query</button>
+    <button onclick="formUrlencodedReq()">form urlencoded</button>
+    <button onclick="formDataReq()">form data</button>
+    <input type="file" id="file1" multiple>
+    <input type="file" id="file2" multiple>
+    <button onclick="jsonReq()">json</button>
+  </div>
+  <script>
+    const urlParamReq = async () => {
+      const res = await axios.get("/user/urlParam/0410")
+      console.log(res.data)
+    }
+    const queryReq = async () => {
+      const res = await axios.get("/user/query?name=hao")
+      console.log(res.data)
+    }
+    const formUrlencodedReq = async () => {
+      const res = await axios.post("/user/formUrlencoded", Qs.stringify({
+        name: "zhuzhenhao",
+      }), {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      });
+      console.log(res.data)
+    }
+    const formDataReq = async () => {
+      const formData = new FormData()
+      formData.set("name", "hao")
+      const file1s = document.getElementById("file1").files;
+      [...file1s].forEach(item => {
+        formData.append("file1", item)
+      })
+      // formData.append("file1", file1s[0])
+      const file2s = document.getElementById("file2").files;
+      [...file2s].forEach(item => {
+        formData.append("file2", item)
+      })
+      // formData.append("file2", file2s[0])
+      const res = await axios.post("/user/formData", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      console.log(res.data)
+    }
+    const jsonReq = async () => {
+      const res = await axios.post("/user/json", {
+        name: "hao",
+        age: "jap"
+      }, {
+        headers: { "Content-Type": "application/json" },
+      });
+      console.log(res.data)
+    }
+  </script>
+</body>
+</html>
