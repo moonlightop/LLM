@@ -1104,3 +1104,38 @@
 [2026-09-18T15:04:48.134] [INFO] default - ws server started at address ws://192.168.0.101:8081
 [2026-09-18T15:04:48.639] [INFO] default - client connected
 [2026-09-18T15:04:48.651] [INFO] default - client connected
+[2026-09-18T15:07:48.640] [INFO] default - app started at address http://192.168.0.101:8080
+[2026-09-18T15:07:48.643] [INFO] default - ws server started at address ws://192.168.0.101:8081
+[2026-09-18T15:07:49.648] [INFO] default - client connected
+[2026-09-18T15:07:49.665] [INFO] default - client connected
+[2026-09-18T15:10:58.248] [INFO] default - client closed
+[2026-09-18T15:10:58.250] [INFO] default - client closed
+[2026-09-18T15:10:58.337] [INFO] default - client connected
+[2026-09-18T15:20:16.122] [INFO] default - client closed
+[2026-09-18T15:20:16.211] [INFO] default - client connected
+[2026-09-18T15:23:19.895] [INFO] default - client closed
+[2026-09-18T15:23:20.004] [INFO] default - client connected
+[2026-09-18T15:29:24.267] [INFO] default - client connected
+[2026-09-18T15:30:35.194] [INFO] default - client closed
+[2026-09-18T15:30:59.867] [INFO] default - client closed
+[2026-09-18T15:30:59.959] [INFO] default - client connected
+[2026-09-18T15:31:48.598] [INFO] default - client connected
+[2026-09-18T15:32:04.170] [INFO] default - client closed
+[2026-09-18T15:32:04.172] [INFO] default - client closed
+[2026-09-18T15:32:04.257] [INFO] default - client connected
+[2026-09-18T15:32:38.350] [INFO] default - client closed
+[2026-09-18T15:32:40.273] [INFO] default - client connected
+[2026-09-18T15:34:10.859] [INFO] default - client connected
+[2026-09-18T15:34:27.427] [INFO] default - client closed
+[2026-09-18T15:34:27.429] [INFO] default - client closed
+[2026-09-18T15:34:27.521] [INFO] default - client connected
+[2026-09-18T15:35:06.273] [INFO] default - client closed
+[2026-09-18T15:35:12.439] [INFO] default - client connected
+[2026-09-18T15:35:15.345] [INFO] default - client closed
+[2026-09-18T15:35:15.392] [INFO] default - client connected
+[2026-09-18T15:35:15.795] [INFO] default - client closed
+[2026-09-18T15:35:15.844] [INFO] default - client connected
+[2026-09-18T15:35:15.984] [INFO] default - client closed
+[2026-09-18T15:35:16.030] [INFO] default - client connected
+[2026-09-18T15:35:53.698] [INFO] default - client connected
+[2026-09-18T15:35:57.354] [INFO] default - client connected

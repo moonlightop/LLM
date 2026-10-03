@@ -1,27 +1,45 @@
 {
   "version": "0.2.0",
   "configurations": [
+    // koa 配置项
+    // {
+    //   "name": "Debug koa-js-be (tsnd)",
+    //   "type": "node",
+    //   "request": "launch",
+    //   "cwd": "${workspaceFolder}/koa-js-be",
+    //   "runtimeExecutable": "npx",
+    //   "runtimeArgs": [
+    //     "tsnd",
+    //     "--inspect=9229",
+    //     "-r",
+    //     "tsconfig-paths/register",
+    //     "--respawn",
+    //     "--transpile-only",
+    //     "${workspaceFolder}/koa-js-be/app.ts"
+    //   ],
+    //   "console": "integratedTerminal",
+    //   "internalConsoleOptions": "neverOpen",
+    //   "skipFiles": ["<node_internals>/**", "node_modules/**"],
+    //   "env": {
+    //     "NODE_ENV": "development"
+    //   }
+    // }
+
+    // nest 配置项（备选：单配置直接启动，不依赖手动起 start:debug）
     {
-      "name": "Debug BE (tsnd)",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceFolder}/BE",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": [
-        "tsnd",
-        "--inspect=9229",
-        "-r",
-        "tsconfig-paths/register",
-        "--respawn",
-        "--transpile-only",
-        "${workspaceFolder}/BE/app.ts"
+      "name": "debug nest (launch)",
+      "cwd": "${workspaceFolder}/nest-js-be",
+      "runtimeExecutable": "npm",
+      "args": [
+        "run",
+        "start:debug"
       ],
+      "skipFiles": ["<node_internals>/**"],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "skipFiles": ["<node_internals>/**", "node_modules/**"],
-      "env": {
-        "NODE_ENV": "development"
-      }
+      "sourceMaps": true,
+      "resolveSourceMapLocations": ["${workspaceFolder}/nest-js-be/dist/**/*.js"]
     }
   ]
 }
